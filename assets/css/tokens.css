@@ -1,0 +1,50 @@
+/**
+ * Design tokens: colors, fonts, spacing. Colors and style choices from
+ * Appearance → Theme Settings are printed after this file and override these.
+ *
+ * @package Concealed1791
+ */
+
+:root {
+	/* "Concealed 1791" palette: flag navy, flag red and brass. */
+	--ct-accent: #b31b2c;
+	--ct-accent-hover: #8e1422;
+	--ct-accent-ink: #ffffff;
+	--ct-secondary: #1f3a68;
+	--ct-highlight: #c9a34e;
+	--ct-dark: #0b1628;
+	--ct-dark-2: #14243d;
+	--ct-bg: #f4f6f9;
+	--ct-surface: #ffffff;
+	--ct-surface-alt: #e8edf4;
+	--ct-ink: #0f172a;
+	--ct-ink-soft: #475569;
+	--ct-border: #d5dde8;
+	--ct-success: #2f7d4a;
+	--ct-danger: #b3261e;
+
+	--ct-on-dark: #ffffff;
+	--ct-on-dark-soft: rgba(255, 255, 255, .76);
+	--ct-on-dark-line: rgba(255, 255, 255, .14);
+
+	--ct-font-head: "Barlow Condensed", "Oswald", "Arial Narrow", sans-serif;
+	--ct-font-body: "Barlow", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	--ct-heading-case: uppercase;
+	--ct-menu-case: uppercase;
+
+	--ct-radius: 14px;
+	--ct-radius-sm: 8px;
+	--ct-btn-radius: 8px;
+	--ct-btn-cut: 0px;
+	--ct-shadow: 0 1px 2px rgba(15, 23, 42, .05), 0 10px 30px rgba(15, 23, 42, .08);
+	--ct-shadow-lg: 0 30px 70px rgba(2, 8, 23, .35);
+
+	--ct-max: 1240px;
+	--ct-gutter: clamp(16px, 4vw, 32px);
+	--ct-section: clamp(56px, 8vw, 104px);
+	--ct-sidebar-w: 340px;
+	--ct-header-h: 78px;
+
+	/* Background artwork; the URLs are printed by the theme (inc/settings.php). */
+	--ct-art-shade: .72;
+}

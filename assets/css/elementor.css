@@ -1,0 +1,31 @@
+/**
+ * Elementor: button shape and page-builder layouts. Loaded only when
+ * Elementor is active (inc/integrations/elementor.php).
+ *
+ * Colors and fonts come from the Elementor global kit, which the theme keeps
+ * matched to Theme Settings. Per-widget settings in Elementor still win.
+ *
+ * @package Concealed1791
+ */
+
+/* Buttons follow Theme Settings → Colors & Style → Button shape. */
+.elementor-widget-button .elementor-button {
+	border-radius: var(--ct-btn-radius);
+	letter-spacing: .07em;
+	transition: background-color .2s, color .2s, transform .2s;
+}
+.elementor-widget-button .elementor-button:hover { transform: translateY(-2px); }
+body.ct-btn-blade .elementor-widget-button .elementor-button {
+	clip-path: polygon(var(--ct-btn-cut) 0, 100% 0, 100% calc(100% - var(--ct-btn-cut)), calc(100% - var(--ct-btn-cut)) 100%, 0 100%, 0 var(--ct-btn-cut));
+}
+
+/* Elementor pages run edge to edge under the theme header. */
+.ct-bare > .elementor { width: 100%; }
+
+/* Theme background artwork as Elementor section classes: add "ct-art ct-art--flag"
+   or "ct-art ct-art--target" under Advanced → CSS Classes. */
+.elementor-section.ct-art, .e-con.ct-art { --ct-art-tint: var(--ct-dark); }
+
+@media (prefers-reduced-motion: reduce) {
+	.elementor-widget-button .elementor-button:hover { transform: none; }
+}

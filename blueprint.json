@@ -1,0 +1,67 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"meta": {
+		"title": "Concealed 1791 theme demo",
+		"description": "The Concealed 1791 theme with demo content, WooCommerce, Elementor, Amelia Lite and FunnelKit.",
+		"author": "kamodev",
+		"categories": [ "Theme" ]
+	},
+	"landingPage": "/",
+	"preferredVersions": {
+		"php": "8.3",
+		"wp": "latest"
+	},
+	"features": {
+		"networking": true
+	},
+	"login": true,
+	"steps": [
+		{
+			"step": "installPlugin",
+			"pluginData": { "resource": "wordpress.org/plugins", "slug": "woocommerce" },
+			"options": { "activate": true, "onError": "skip-plugin", "humanReadableName": "WooCommerce" }
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": { "resource": "wordpress.org/plugins", "slug": "elementor" },
+			"options": { "activate": true, "onError": "skip-plugin", "humanReadableName": "Elementor" }
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": { "resource": "wordpress.org/plugins", "slug": "ameliabooking" },
+			"options": { "activate": true, "onError": "skip-plugin", "humanReadableName": "Amelia" }
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": { "resource": "wordpress.org/plugins", "slug": "funnel-builder" },
+			"options": { "activate": true, "onError": "skip-plugin", "humanReadableName": "FunnelKit" }
+		},
+		{
+			"step": "installTheme",
+			"themeData": {
+				"resource": "git:directory",
+				"url": "https://github.com/kamodev/Concealed1791",
+				"ref": "claude/fervent-feynman-jza0hq",
+				"refType": "branch"
+			},
+			"options": { "activate": true, "targetFolderName": "concealed1791", "humanReadableName": "Concealed 1791" }
+		},
+		{
+			"step": "setSiteOptions",
+			"options": {
+				"blogname": "A & A Tactical",
+				"blogdescription": "Concealed carry & defensive training in Broomfield, Colorado",
+				"timezone_string": "America/Denver",
+				"woocommerce_coming_soon": "no"
+			}
+		},
+		{
+			"step": "wp-cli",
+			"command": "wp rewrite structure /%postname%/"
+		},
+		{
+			"step": "wp-cli",
+			"command": "wp eval-file /wordpress/wp-content/themes/concealed1791/bin/seed-demo.php"
+		}
+	]
+}

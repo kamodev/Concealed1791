@@ -1,0 +1,157 @@
+/**
+ * Front page sections: benefits, steps, reviews, newsletter band, FAQ layout,
+ * and the call-to-action band above the footer.
+ *
+ * @package Concealed1791
+ */
+
+/* ==========================================================================
+   Benefits
+   ========================================================================== */
+.ct-benefit {
+	position: relative;
+	padding: clamp(22px, 2.6vw, 32px);
+	background: var(--ct-surface);
+	border: 1px solid var(--ct-border);
+	border-radius: var(--ct-radius);
+	box-shadow: var(--ct-shadow);
+	transition: transform .2s, box-shadow .2s, border-color .2s;
+	overflow: hidden;
+}
+.ct-benefit::before {
+	content: ""; position: absolute; inset: 0 0 auto; height: 4px;
+	background: linear-gradient(90deg, var(--ct-accent), var(--ct-secondary));
+	transform: scaleX(0); transform-origin: left; transition: transform .25s;
+}
+.ct-benefit:hover { transform: translateY(-4px); border-color: transparent; box-shadow: 0 20px 40px rgba(15, 23, 42, .12); }
+.ct-benefit:hover::before { transform: scaleX(1); }
+.ct-benefit__head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1.1rem; }
+.ct-benefit__icon {
+	display: grid; place-items: center; width: 58px; height: 58px; border-radius: 16px;
+	background: var(--ct-dark); color: var(--ct-highlight);
+	box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--ct-highlight) 30%, transparent);
+}
+.ct-benefit__icon .ct-icon { width: 28px; height: 28px; }
+.ct-benefit__tag {
+	padding: .25rem .7rem; border-radius: 999px;
+	background: color-mix(in srgb, var(--ct-accent) 10%, var(--ct-surface)); color: var(--ct-accent);
+	font-family: var(--ct-font-head); font-size: .85rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap;
+}
+.ct-benefit__title { font-size: 1.5rem; margin-bottom: .4rem; }
+.ct-benefit p { color: var(--ct-ink-soft); margin: 0; }
+
+/* ==========================================================================
+   How it works
+   ========================================================================== */
+.ct-steps { background: var(--ct-surface); }
+.ct-steps__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 40px); counter-reset: step; position: relative; }
+.ct-steps__list::before {
+	content: ""; position: absolute; top: 36px; left: 16%; right: 16%; height: 2px;
+	background: repeating-linear-gradient(90deg, var(--ct-border) 0 10px, transparent 10px 18px);
+}
+.ct-step { position: relative; text-align: center; padding: 0 clamp(4px, 1vw, 16px); }
+.ct-step__num {
+	position: relative; display: inline-grid; place-items: center; width: 72px; height: 72px; margin-bottom: 1.25rem;
+	border-radius: 50%; background: var(--ct-accent); color: var(--ct-accent-ink);
+	font-family: var(--ct-font-head); font-size: 1.8rem; font-weight: 700;
+	box-shadow: 0 0 0 8px var(--ct-surface), 0 0 0 10px color-mix(in srgb, var(--ct-accent) 25%, transparent);
+}
+.ct-step:nth-child(2) .ct-step__num { background: var(--ct-secondary); box-shadow: 0 0 0 8px var(--ct-surface), 0 0 0 10px color-mix(in srgb, var(--ct-secondary) 25%, transparent); }
+.ct-step:nth-child(3) .ct-step__num { background: var(--ct-dark); box-shadow: 0 0 0 8px var(--ct-surface), 0 0 0 10px color-mix(in srgb, var(--ct-dark) 25%, transparent); }
+.ct-step__title { font-size: 1.55rem; }
+.ct-step p { color: var(--ct-ink-soft); max-width: 30ch; margin: 0 auto; }
+@media (max-width: 760px) {
+	.ct-steps__list { grid-template-columns: minmax(0, 1fr); }
+	.ct-steps__list::before { top: 36px; bottom: 36px; left: 36px; right: auto; width: 2px; height: auto; background: repeating-linear-gradient(180deg, var(--ct-border) 0 10px, transparent 10px 18px); }
+	.ct-step { display: grid; grid-template-columns: 72px 1fr; column-gap: 1.25rem; text-align: left; padding: 0; }
+	.ct-step__num { grid-row: span 2; }
+	.ct-step p { margin: 0; }
+}
+
+/* ==========================================================================
+   Reviews
+   ========================================================================== */
+.ct-reviews { background: var(--ct-surface); }
+.ct-reviews__grid { display: grid; grid-template-columns: minmax(220px, .8fr) repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2vw, 24px); align-items: stretch; }
+@media (max-width: 1100px) { .ct-reviews { background: var(--ct-surface); }
+.ct-reviews__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .ct-reviews { background: var(--ct-surface); }
+.ct-reviews__grid { grid-template-columns: minmax(0, 1fr); } }
+.ct-reviews__summary {
+	display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: .6rem;
+	padding: clamp(22px, 2.6vw, 32px); border-radius: var(--ct-radius);
+	background: var(--ct-dark); color: var(--ct-on-dark);
+}
+.ct-reviews__summary p { margin: 0; color: var(--ct-on-dark-soft); }
+.ct-reviews__score { font-family: var(--ct-font-head); font-size: 4.2rem; font-weight: 700; line-height: .9; }
+.ct-reviews__summary .ct-stars { font-size: 1.35rem; }
+.ct-review {
+	margin: 0; display: flex; flex-direction: column; gap: 1rem;
+	padding: clamp(22px, 2.6vw, 30px); border-radius: var(--ct-radius);
+	background: var(--ct-surface); border: 1px solid var(--ct-border); box-shadow: var(--ct-shadow);
+}
+.ct-review__quote { margin: 0; flex: 1; font-size: 1.08rem; }
+.ct-review__quote p { margin: 0; }
+.ct-review__quote::before { content: "\201C"; display: block; height: .5em; font-family: Georgia, serif; font-size: 3.6rem; line-height: .9; color: var(--ct-accent); }
+.ct-review__who { display: flex; align-items: center; gap: .75rem; }
+.ct-review__who > span:last-child { display: flex; flex-direction: column; line-height: 1.25; }
+.ct-review__who small { color: var(--ct-ink-soft); font-size: .85rem; }
+.ct-review__avatar {
+	display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%;
+	background: var(--ct-secondary); color: #fff; font-family: var(--ct-font-head); font-size: 1.3rem; font-weight: 700; text-transform: uppercase;
+}
+
+/* ==========================================================================
+   Newsletter band
+   ========================================================================== */
+.ct-newsband { background: var(--ct-surface); border-top: 1px solid var(--ct-border); padding: clamp(40px, 5vw, 64px) 0; }
+.ct-newsband__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 48px; align-items: center; }
+@media (max-width: 860px) { .ct-newsband__inner { grid-template-columns: minmax(0, 1fr); } }
+.ct-newsband__copy { display: flex; align-items: flex-start; gap: 1.25rem; }
+.ct-newsband__copy h2 { font-size: clamp(1.7rem, 2.8vw, 2.3rem); margin-bottom: .25em; }
+.ct-newsband__copy p { color: var(--ct-ink-soft); margin: 0; }
+.ct-newsband__icon { display: grid; place-items: center; width: 60px; height: 60px; border-radius: 16px; background: var(--ct-accent); color: var(--ct-accent-ink); flex-shrink: 0; }
+.ct-newsband__icon .ct-icon { width: 28px; height: 28px; }
+
+.ct-newsletter { display: flex; gap: 8px; flex-wrap: wrap; }
+.ct-newsletter input[type="email"] {
+	flex: 1 1 220px; min-width: 0; padding: 14px 16px;
+	border: 2px solid var(--ct-border); border-radius: var(--ct-btn-radius);
+	background: var(--ct-surface); color: var(--ct-ink); font: inherit;
+}
+.ct-newsletter input[type="email"]:focus { border-color: var(--ct-secondary); outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--ct-secondary) 25%, transparent); }
+.ct-newsletter button { flex: 0 0 auto; }
+.ct-newsletter__note { font-size: .9rem; color: var(--ct-ink-soft); font-style: italic; }
+.ct-newsletter__status { flex-basis: 100%; margin: 0 0 .5rem; padding: .6rem .9rem; border-radius: var(--ct-radius-sm); font-weight: 600; }
+.ct-newsletter__status--ok { background: color-mix(in srgb, var(--ct-success) 14%, var(--ct-surface)); color: var(--ct-success); }
+.ct-newsletter__status--invalid, .ct-newsletter__status--wait, .ct-newsletter__status--error { background: color-mix(in srgb, var(--ct-danger) 12%, var(--ct-surface)); color: var(--ct-danger); }
+.ct-hp { position: absolute !important; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* ==========================================================================
+   FAQ layout (front page and FAQ template)
+   ========================================================================== */
+.ct-faq-page { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
+@media (max-width: 900px) { .ct-faq-page { grid-template-columns: minmax(0, 1fr); } }
+.ct-faq-page__intro { position: sticky; top: calc(var(--ct-header-h) + 24px); }
+@media (max-width: 900px) { .ct-faq-page__intro { position: static; } }
+.ct-faq-page__intro .ct-section-head { margin-bottom: 1rem; }
+.ct-faq-page__intro .ct-callout { margin-top: 0; }
+
+/* ==========================================================================
+   Call-to-action band (above the footer)
+   ========================================================================== */
+.ct-cta-band { --ct-art-tint: var(--ct-accent); background: var(--ct-accent); color: var(--ct-accent-ink); padding: clamp(44px, 6vw, 76px) 0; }
+.ct-cta-band.ct-art--target::before {
+	/* Only the upper-left arcs of the target show, so its numbers stay clear of the text. */
+	background-size: 640px auto;
+	background-position: right -200px bottom -340px;
+	opacity: calc((1 - var(--ct-art-shade)) * .8);
+}
+.ct-cta-band__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px 48px; }
+.ct-cta-band__copy { max-width: 640px; }
+.ct-cta-band h2 { margin-bottom: .25em; font-size: clamp(2rem, 4vw, 3rem); }
+.ct-cta-band p { margin: 0; font-size: 1.15rem; opacity: .92; }
+.ct-cta-band__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
+.ct-cta-band__phone { color: inherit; font-size: 1.35rem; }
+.ct-cta-band__phone:hover { color: inherit; opacity: .85; }
+.ct-cta-band__phone > .ct-icon { width: 46px; height: 46px; padding: 11px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, .45); }

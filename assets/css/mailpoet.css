@@ -1,0 +1,80 @@
+/**
+ * MailPoet forms in the theme's fonts, fields and buttons. Loaded
+ * only when MailPoet is active and Theme Settings → Integrations → MailPoet
+ * matching is on.
+ *
+ * MailPoet writes each form's colors and spacing inline and in a per-form
+ * <style> block, so !important is needed for the theme's values to apply.
+ * Turn matching off to keep the styles set in MailPoet's form editor.
+ *
+ * @package Concealed1791
+ */
+
+.mailpoet_form { font-family: var(--ct-font-body); }
+
+.mailpoet_form :is(.mailpoet_text, .mailpoet_textarea, .mailpoet_select) {
+	padding: .8rem 1rem !important;
+	border: 2px solid var(--ct-border) !important;
+	background: var(--ct-surface) !important;
+	color: var(--ct-ink) !important;
+	font-family: var(--ct-font-body) !important;
+	font-size: 1rem !important;
+	line-height: 1.4 !important;
+}
+.mailpoet_form :is(.mailpoet_text, .mailpoet_textarea, .mailpoet_select):focus {
+	border-color: var(--ct-accent) !important;
+	outline: 2px solid var(--ct-accent);
+	outline-offset: 0;
+}
+
+.mailpoet_form .mailpoet_submit {
+	padding: 14px 32px !important;
+	border: 2px solid var(--ct-accent) !important;
+	border-radius: var(--ct-btn-radius) !important;
+	background: var(--ct-accent) !important;
+	color: var(--ct-accent-ink) !important;
+	font-family: var(--ct-font-head) !important;
+	font-size: 1rem !important;
+	font-weight: 500 !important;
+	letter-spacing: 1px !important;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: background .2s, border-color .2s, transform .2s;
+}
+.mailpoet_form .mailpoet_submit:hover {
+	border-color: var(--ct-accent-hover) !important;
+	background: var(--ct-accent-hover) !important;
+	transform: translateY(-2px);
+}
+.mailpoet_form .mailpoet_submit:focus-visible { outline: 2px solid var(--ct-accent-ink); outline-offset: -6px; }
+
+/* Template fonts set inline by MailPoet give way to the theme's. */
+.mailpoet_form :is([data-font], .mailpoet-has-font) { font-family: inherit !important; }
+.mailpoet_form .mailpoet-heading {
+	font-family: var(--ct-font-head) !important;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: .02em;
+}
+.mailpoet_form .mailpoet_paragraph { font-family: var(--ct-font-body); }
+
+.mailpoet_form .mailpoet_validate_success { color: var(--ct-success) !important; font-weight: 600; }
+.mailpoet_form :is(.mailpoet_validate_error, .parsley-errors-list) { color: var(--ct-danger) !important; }
+
+/* In the newsletter band (light) and the footer (dark): no card of its own. */
+.ct-newsletter--mailpoet { max-width: 560px; text-align: left; }
+:is(.ct-newsband, .ct-footer) .mailpoet_form {
+	padding: 0 !important;
+	border: 0 !important;
+	background: transparent !important;
+}
+.ct-newsband .mailpoet_form :is(h1, h2, h3, p, label, .mailpoet_paragraph, .mailpoet-heading, .mailpoet-heading span) { color: var(--ct-ink) !important; }
+.ct-newsband .mailpoet_form .mailpoet_form_image { display: none; }
+.ct-footer:not(.ct-footer--light) .mailpoet_form { color: #fff; }
+.ct-footer:not(.ct-footer--light) .mailpoet_form :is(h1, h2, h3, p, label, .mailpoet_paragraph, .mailpoet-heading, .mailpoet-heading span) { color: inherit !important; }
+.ct-footer:not(.ct-footer--light) .mailpoet_form .mailpoet_validate_success { color: #fff !important; }
+.ct-footer:not(.ct-footer--light) .mailpoet_form a { color: var(--ct-highlight) !important; }
+
+@media (prefers-reduced-motion: reduce) {
+	.mailpoet_form .mailpoet_submit:hover { transform: none; }
+}
