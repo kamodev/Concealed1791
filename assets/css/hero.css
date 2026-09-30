@@ -1,0 +1,123 @@
+/**
+ * Front page hero with the "next class" offer card, the certification strip
+ * that overlaps it, and page title banners.
+ *
+ * @package Concealed1791
+ */
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.ct-hero {
+	position: relative;
+	background: var(--ct-dark);
+	color: var(--ct-on-dark);
+	padding: clamp(56px, 8vw, 112px) 0 clamp(96px, 11vw, 150px);
+}
+.ct-hero--image { isolation: isolate; overflow: hidden; }
+.ct-hero--image::before { content: ""; position: absolute; inset: 0; z-index: -2; background: var(--ct-hero-image) center / cover no-repeat; }
+.ct-hero--image::after {
+	content: ""; position: absolute; inset: 0; z-index: -1;
+	background: linear-gradient(100deg, var(--ct-dark) 0%, color-mix(in srgb, var(--ct-dark) 88%, transparent) 45%, color-mix(in srgb, var(--ct-dark) calc(var(--ct-art-shade) * 100%), transparent) 100%);
+}
+.ct-hero.ct-art--target { background: radial-gradient(120% 120% at 100% 50%, var(--ct-dark-2), var(--ct-dark) 60%); }
+
+.ct-hero__inner { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
+@media (max-width: 980px) { .ct-hero__inner { grid-template-columns: minmax(0, 1fr); } }
+
+.ct-hero__badge {
+	display: inline-flex; align-items: center; gap: .5rem;
+	padding: .45rem 1rem; border-radius: 999px;
+	border: 1px solid color-mix(in srgb, var(--ct-highlight) 55%, transparent);
+	background: color-mix(in srgb, var(--ct-dark) 55%, transparent);
+	color: var(--ct-highlight);
+	font-family: var(--ct-font-head); font-size: .98rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+	backdrop-filter: blur(4px);
+}
+.ct-hero__title {
+	font-size: clamp(2.8rem, 6.4vw, 5rem);
+	line-height: .95;
+	margin: .45em 0 .35em;
+	text-shadow: 0 4px 24px rgba(0, 0, 0, .35);
+}
+.ct-hero__title em { font-style: normal; color: var(--ct-highlight); }
+.ct-hero__lead { font-size: clamp(1.1rem, 1.6vw, 1.3rem); color: var(--ct-on-dark-soft); max-width: 36em; }
+.ct-hero .ct-button-row { margin-top: 2rem; }
+.ct-hero__points { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; gap: .6rem; }
+.ct-hero__points li { display: flex; align-items: center; gap: .65rem; font-weight: 600; font-size: 1.05rem; }
+.ct-hero__points .ct-icon { width: 1.35em; height: 1.35em; color: var(--ct-highlight); }
+.ct-hero__rating { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin: 1.75rem 0 0; color: var(--ct-on-dark-soft); }
+.ct-hero__rating strong { color: #fff; }
+
+/* Offer card: the next class with open seats. */
+.ct-offer-card {
+	position: relative;
+	padding: clamp(24px, 3vw, 34px);
+	border-radius: var(--ct-radius);
+	background: var(--ct-surface);
+	color: var(--ct-ink);
+	box-shadow: var(--ct-shadow-lg);
+	border-top: 6px solid var(--ct-accent);
+}
+.ct-offer-card::after {
+	content: ""; position: absolute; inset: auto 24px -14px; height: 14px; z-index: -1;
+	border-radius: 0 0 var(--ct-radius) var(--ct-radius); background: color-mix(in srgb, var(--ct-surface) 55%, transparent);
+}
+.ct-offer-card__top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem; margin-bottom: 1rem; }
+.ct-offer-card__type { font-family: var(--ct-font-head); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ct-secondary); font-size: .9rem; }
+.ct-offer-card__title { font-size: clamp(1.7rem, 2.6vw, 2.1rem); margin-bottom: .6rem; }
+.ct-offer-card__title a { color: inherit; text-decoration: none; }
+.ct-offer-card__title a:hover { color: var(--ct-accent); }
+.ct-offer-card__meta { list-style: none; margin: 0 0 1.25rem; padding: 0; display: grid; gap: .4rem; color: var(--ct-ink-soft); }
+.ct-offer-card__meta li { display: flex; align-items: center; gap: .55rem; }
+.ct-offer-card__meta .ct-icon { color: var(--ct-secondary); width: 1.1em; height: 1.1em; }
+.ct-offer-card__buy { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; padding-top: 1rem; border-top: 1px dashed var(--ct-border); }
+.ct-offer-card .ct-meter { margin: .75rem 0 1.25rem; }
+.ct-offer-card__note { display: flex; align-items: center; justify-content: center; gap: .4rem; margin: .8rem 0 1rem; font-size: .85rem; color: var(--ct-ink-soft); }
+.ct-offer-card__note .ct-icon { color: var(--ct-success); }
+.ct-offer-card > .ct-more { display: flex; justify-content: center; }
+.ct-offer-card__phone { display: flex; justify-content: center; margin-top: 1rem; color: var(--ct-ink); }
+.ct-offer-card__phone .ct-icon { color: var(--ct-accent); }
+
+/* Prices */
+.ct-price { display: inline-flex; align-items: flex-start; font-family: var(--ct-font-head); font-weight: 700; line-height: 1; color: var(--ct-ink); }
+.ct-price > span { display: inline-flex; align-items: flex-start; }
+.ct-price__cur { font-size: 1.5rem; margin-top: .3rem; margin-right: .05rem; }
+.ct-price__num { font-size: 3.2rem; letter-spacing: -.01em; }
+.ct-price__cents { font-size: 1.3rem; margin-top: .3rem; }
+.ct-price__text { font-size: 2rem; }
+.ct-price__period { align-self: flex-end; margin: 0 0 .35rem .45rem; font-family: var(--ct-font-body); font-size: .9rem; font-weight: 600; color: var(--ct-ink-soft); }
+
+/* ==========================================================================
+   Certification strip (overlaps the hero)
+   ========================================================================== */
+.ct-trust { position: relative; z-index: 2; margin-top: calc(-1 * clamp(48px, 6vw, 64px)); }
+.ct-trust__list {
+	list-style: none; margin: 0; padding: clamp(16px, 2vw, 22px) clamp(16px, 3vw, 36px);
+	display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px 24px;
+	background: var(--ct-surface); border-radius: var(--ct-radius); box-shadow: var(--ct-shadow);
+	border-bottom: 4px solid var(--ct-secondary);
+}
+.ct-trust__item { display: flex; align-items: center; gap: .75rem; font-family: var(--ct-font-head); font-size: 1.12rem; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; line-height: 1.1; }
+.ct-trust__icon { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: color-mix(in srgb, var(--ct-secondary) 10%, var(--ct-surface)); color: var(--ct-secondary); flex-shrink: 0; }
+.ct-trust__icon .ct-icon { width: 24px; height: 24px; }
+.ct-trust + .ct-section { padding-top: clamp(56px, 7vw, 88px); }
+
+/* ==========================================================================
+   Page title banners
+   ========================================================================== */
+.ct-page-hero {
+	background: var(--ct-dark);
+	color: var(--ct-on-dark);
+	padding: clamp(44px, 6vw, 84px) 0 clamp(40px, 5vw, 72px);
+	border-bottom: 4px solid var(--ct-accent);
+}
+.ct-page-hero h1 { margin-bottom: .2em; max-width: 22ch; }
+.ct-page-hero .ct-eyebrow { color: var(--ct-highlight); }
+.ct-page-hero__meta { color: var(--ct-on-dark-soft); font-weight: 600; margin: .5rem 0 0; }
+.ct-page-hero__meta a { color: var(--ct-highlight); }
+.ct-page-hero__sub { color: var(--ct-on-dark-soft); font-size: 1.15rem; max-width: 38em; margin-top: .75rem; }
+.ct-page-hero__sub p:last-child { margin-bottom: 0; }
+.ct-breadcrumbs { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: 1rem; font-size: .85rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ct-on-dark-soft); }
+.ct-breadcrumbs a { color: var(--ct-on-dark-soft); text-decoration: none; }
+.ct-breadcrumbs a:hover { color: var(--ct-highlight); }

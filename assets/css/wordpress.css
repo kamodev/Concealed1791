@@ -1,0 +1,27 @@
+/**
+ * WordPress core classes: alignments, captions, galleries and block styles.
+ *
+ * @package Concealed1791
+ */
+
+.alignleft { float: left; margin: .4em 1.5em 1em 0; }
+.alignright { float: right; margin: .4em 0 1em 1.5em; }
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.alignwide { margin-left: min(-3vw, calc((820px - var(--ct-max)) / 2)); margin-right: min(-3vw, calc((820px - var(--ct-max)) / 2)); }
+@media (max-width: 1100px) { .alignwide { margin-left: 0; margin-right: 0; } }
+.wp-caption-text, figcaption { font-size: .88rem; color: var(--ct-ink-soft); margin-top: .5rem; }
+.sticky .ct-card__title::before { content: "★ "; color: var(--ct-highlight); }
+.bypostauthor > .comment-body { border-left: 3px solid var(--ct-accent); padding-left: 1rem; }
+.wp-block-button__link { text-decoration: none; }
+.wp-block-button.is-style-outline > .wp-block-button__link { background: transparent; color: var(--ct-secondary); border-color: currentColor; box-shadow: none; }
+.wp-block-separator { border: 0; border-top: 2px solid var(--ct-border); }
+.wp-block-pullquote { border-color: var(--ct-accent); }
+.has-accent-color { color: var(--ct-accent) !important; }
+.has-accent-background-color { background-color: var(--ct-accent) !important; }
+.has-secondary-color { color: var(--ct-secondary) !important; }
+.has-secondary-background-color { background-color: var(--ct-secondary) !important; }
+.has-highlight-color { color: var(--ct-highlight) !important; }
+.has-highlight-background-color { background-color: var(--ct-highlight) !important; }
+.has-dark-color { color: var(--ct-dark) !important; }
+.has-dark-background-color { background-color: var(--ct-dark) !important; }
+.has-light-background-color { background-color: var(--ct-surface-alt) !important; }

@@ -1,0 +1,77 @@
+/**
+ * Buttons. Shape comes from Theme Settings → Colors & Style → Button shape
+ * (rounded, pill, square or blade-cut corners).
+ *
+ * @package Concealed1791
+ */
+
+.ct-btn,
+.wp-block-button__link,
+button[type="submit"], input[type="submit"],
+.woocommerce a.button, .woocommerce button.button,
+.woocommerce :is(a, button, input).button.alt {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: .55rem;
+	padding: 13px 28px;
+	border: 2px solid var(--ct-accent);
+	border-radius: var(--ct-btn-radius);
+	background: var(--ct-accent);
+	color: var(--ct-accent-ink);
+	font-family: var(--ct-font-head);
+	font-size: 1.08rem;
+	font-weight: 700;
+	letter-spacing: .07em;
+	text-transform: uppercase;
+	text-align: center;
+	text-decoration: none;
+	line-height: 1.15;
+	white-space: nowrap;
+	cursor: pointer;
+	box-shadow: 0 8px 18px color-mix(in srgb, var(--ct-accent) 26%, transparent);
+	transition: background .2s, color .2s, border-color .2s, transform .2s, box-shadow .2s;
+}
+.ct-btn:hover,
+.wp-block-button__link:hover,
+button[type="submit"]:hover, input[type="submit"]:hover,
+.woocommerce a.button:hover, .woocommerce button.button:hover,
+.woocommerce :is(a, button, input).button.alt:hover {
+	background: var(--ct-accent-hover);
+	border-color: var(--ct-accent-hover);
+	color: var(--ct-accent-ink);
+	transform: translateY(-2px);
+	box-shadow: 0 12px 24px color-mix(in srgb, var(--ct-accent) 32%, transparent);
+}
+.ct-btn .ct-icon { width: 1.1em; height: 1.1em; }
+
+/* Blade cut: angled corners. clip-path hides shadows and outside outlines, so
+   those buttons draw focus inside the edge. */
+body.ct-btn-blade :is(.ct-btn, .wp-block-button__link, button[type="submit"], input[type="submit"], .woocommerce a.button, .woocommerce button.button) {
+	clip-path: polygon(var(--ct-btn-cut) 0, 100% 0, 100% calc(100% - var(--ct-btn-cut)), calc(100% - var(--ct-btn-cut)) 100%, 0 100%, 0 var(--ct-btn-cut));
+	box-shadow: none;
+}
+body.ct-btn-blade :is(.ct-btn, .wp-block-button__link, button[type="submit"], input[type="submit"]):focus-visible { outline: 2px solid var(--ct-accent-ink); outline-offset: -6px; }
+
+/* Sizes */
+.ct-btn--lg { padding: 16px 32px; font-size: 1.2rem; }
+.ct-btn--sm { padding: 9px 18px; font-size: .95rem; box-shadow: none; }
+.ct-btn--block { display: flex; width: 100%; }
+
+/* Outline: on light backgrounds. */
+.ct-btn--outline { background: transparent; color: var(--ct-secondary); border-color: currentColor; box-shadow: none; }
+.ct-btn--outline:hover { background: var(--ct-secondary); border-color: var(--ct-secondary); color: #fff; box-shadow: none; }
+
+/* Ghost: on dark backgrounds. */
+.ct-btn--ghost { background: rgba(255, 255, 255, .04); color: #fff; border-color: rgba(255, 255, 255, .55); box-shadow: none; }
+.ct-btn--ghost:hover { background: #fff; border-color: #fff; color: var(--ct-dark); box-shadow: none; }
+
+/* Dark: secondary action on light backgrounds. */
+.ct-btn--dark { background: var(--ct-dark); border-color: var(--ct-dark); color: #fff; box-shadow: none; }
+.ct-btn--dark:hover { background: var(--ct-secondary); border-color: var(--ct-secondary); color: #fff; }
+
+/* Light: on accent or dark bands. */
+.ct-btn--light { background: #fff; border-color: #fff; color: var(--ct-accent); box-shadow: 0 10px 24px rgba(0, 0, 0, .18); }
+.ct-btn--light:hover { background: var(--ct-dark); border-color: var(--ct-dark); color: #fff; }
+
+.ct-btn[aria-disabled="true"] { opacity: .5; pointer-events: none; box-shadow: none; }

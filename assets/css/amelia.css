@@ -1,0 +1,40 @@
+/**
+ * Amelia booking forms in the theme colors and fonts. Loaded only when Amelia
+ * is active and Theme Settings → Integrations → Amelia matching is on.
+ *
+ * Amelia 2.x forms read these custom properties, which Amelia sets inline from
+ * Amelia → Customize; !important lets the theme's values apply instead.
+ * Turn matching off to use the colors set in Amelia.
+ *
+ * @package Concealed1791
+ */
+
+:is(.amelia-v2-booking, #amelia-container, .am-dialog-popup),
+:is(.amelia-v2-booking, #amelia-container, .am-dialog-popup) * {
+	--am-c-primary: var(--ct-accent) !important;
+	--am-c-btn-prim: var(--ct-accent) !important;
+	--am-c-btn-prim-text: var(--ct-accent-ink) !important;
+	--am-c-btn-sec: var(--ct-surface) !important;
+	--am-c-btn-sec-text: var(--ct-ink) !important;
+	--am-c-main-bgr: var(--ct-surface) !important;
+	--am-c-main-heading-text: var(--ct-ink) !important;
+	--am-c-main-text: var(--ct-ink-soft) !important;
+	--am-c-sb-bgr: var(--ct-dark) !important;
+	--am-c-sb-text: #ffffff !important;
+	--am-c-inp-bgr: var(--ct-surface) !important;
+	--am-c-inp-border: var(--ct-border) !important;
+	--am-c-inp-text: var(--ct-ink) !important;
+	--am-c-inp-placeholder: var(--ct-ink-soft) !important;
+	--am-font-family: var(--ct-font-body) !important;
+}
+
+/* Amelia 1.x (classic) forms: match fonts and primary buttons. */
+.amelia-app-booking,
+.amelia-app-booking * { font-family: var(--ct-font-body); }
+.amelia-app-booking .el-button--primary {
+	border-color: var(--ct-accent);
+	border-radius: var(--ct-btn-radius);
+	background: var(--ct-accent);
+	color: var(--ct-accent-ink);
+}
+.amelia-app-booking .el-button--primary:hover { border-color: var(--ct-accent-hover); background: var(--ct-accent-hover); }

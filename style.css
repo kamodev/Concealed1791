@@ -1,0 +1,21 @@
+/*
+Theme Name: Concealed 1791
+Theme URI: https://www.concealed1791.com
+Author: A & A Tactical
+Description: A conversion-focused training theme for concealed1791.com (A & A Tactical). Includes a promo bar and contact top bar, sticky header with call and booking buttons, a hero with a live "next class" card, certification strip, benefit grid, class schedule with seats-left badges, how-it-works steps, training packages with a pricing toggle, instructors, star-rated reviews, FAQ accordion, pre-footer call to action, and a configurable footer. Appearance → Theme Settings controls sidebars, menus, footer columns, colors and integrations for WooCommerce, FunnelKit, Elementor, Amelia and MailPoet.
+Version: 1.0.0
+Requires at least: 6.2
+Tested up to: 7.1
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: concealed1791
+Tags: custom-menu, custom-logo, featured-images, theme-options, threaded-comments, translation-ready, e-commerce, education, left-sidebar, right-sidebar, footer-widgets
+*/
+
+/*
+ * Styles live in assets/css/ and are enqueued in order by c1791_scripts() in
+ * functions.php: tokens, base, buttons, header, hero, sections, cards,
+ * schedule, pricing, faq, content, footer, wordpress. Plugin stylesheets load
+ * only while their plugin is active.
+ */
