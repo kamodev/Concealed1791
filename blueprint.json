@@ -41,7 +41,7 @@
 			"themeData": {
 				"resource": "git:directory",
 				"url": "https://github.com/kamodev/Concealed1791",
-				"ref": "claude/fervent-feynman-jza0hq",
+				"ref": "design/initial-design-work",
 				"refType": "branch"
 			},
 			"options": { "activate": true, "targetFolderName": "concealed1791", "humanReadableName": "Concealed 1791" }
