@@ -8,7 +8,7 @@ A classic WordPress theme for **concealed1791.com** (A & A Tactical, Broomfield,
 
 | Option | How |
 | --- | --- |
-| **In your browser (nothing to install)** | Open [WordPress Playground with this theme](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/kamodev/Concealed1791/design/initial-design-work/blueprint.json). It installs WordPress, WooCommerce, Elementor, Amelia Lite, FunnelKit and this theme, loads the demo content and logs you in as admin. Each visit starts fresh, and nothing is saved. After this branch is merged, change `ref` in `blueprint.json` (and the branch in the link) to `main`. |
+| **In your browser (nothing to install)** | Open [WordPress Playground with this theme](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/kamodev/Concealed1791/main/blueprint.json). It installs WordPress, WooCommerce, Elementor, Amelia Lite, FunnelKit and this theme, loads the demo content and logs you in as admin. Each visit starts fresh, and nothing is saved. |
 | **On your computer** | `bin/demo-server.sh`, then open http://localhost:8080 (log in with **admin / admin**). See [Demo server](#demo-server). |
 
 MailPoet needs MySQL/MariaDB, so neither demo includes it. Test MailPoet on a staging copy of the live site.
